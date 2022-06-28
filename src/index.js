@@ -764,9 +764,10 @@ export function useDropzone(props = {}) {
       dispatch({ type: "openDialog" });
       onFileDialogOpenCb();
       // https://developer.mozilla.org/en-US/docs/Web/API/window/showOpenFilePicker
+      const acceptedTypes = types ? pickerOptionsFromAccept(types) : pickerTypes;
       const opts = {
         multiple,
-        types: types || pickerTypes,
+        types: acceptedTypes,
       };
       window
         .showOpenFilePicker(opts)
