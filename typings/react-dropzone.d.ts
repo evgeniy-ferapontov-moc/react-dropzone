@@ -77,7 +77,7 @@ export type DropzoneState = DropzoneRef & {
 };
 
 export interface DropzoneRef {
-  open: () => void;
+  open: (types?: Accept) => void;
 }
 
 export interface DropzoneRootProps extends React.HTMLAttributes<HTMLElement> {
