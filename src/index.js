@@ -757,7 +757,7 @@ export function useDropzone(props = {}) {
   );
 
   // Fn for opening the file dialog programmatically
-  const openFileDialog = useCallback(() => {
+  const openFileDialog = useCallback((types) => {
     // No point to use FS access APIs if context is not secure
     // https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts#feature_detection
     if (fsAccessApiWorksRef.current) {
@@ -766,7 +766,7 @@ export function useDropzone(props = {}) {
       // https://developer.mozilla.org/en-US/docs/Web/API/window/showOpenFilePicker
       const opts = {
         multiple,
-        types: pickerTypes,
+        types: types || pickerTypes,
       };
       window
         .showOpenFilePicker(opts)
